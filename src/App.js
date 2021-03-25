@@ -21,7 +21,7 @@ function App() {
 
     //fetch tasks, get all tasks from json server
     const fetchTasks = async () => {
-      const res = await fetch('http://localhost:5000/tasks');
+      const res = await fetch('https://my-json-server.typicode.com/yudhono/db.json/tasks');
       const data = await res.json();
 
       return data;
@@ -29,7 +29,7 @@ function App() {
 
     // fetchtask, get single task from json server
     const fetchTask = async (id) => {
-      const res = await fetch(`http://localhost:5000/tasks/${id}`);
+      const res = await fetch(`https://my-json-server.typicode.com/yudhono/db.json/tasks/${id}`);
       const data = await res.json();
 
       return data;
@@ -37,7 +37,7 @@ function App() {
 
     // Delete Task
     const deleteTask = async (id) => {
-      await fetch(`http://localhost:5000/tasks/${id}`, {
+      await fetch(`https://my-json-server.typicode.com/yudhono/db.json/tasks/${id}`, {
         method: 'DELETE',
       })
 
@@ -47,7 +47,7 @@ function App() {
     // Add task
     const addtask = async (task) => {
       
-        const res = await fetch ('http://localhost:5000/tasks', {
+        const res = await fetch ('https://my-json-server.typicode.com/yudhono/db.json/tasks', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ function App() {
       const taskToToggle = await fetchTask(id)
       const updTask = {...taskToToggle, reminder: !taskToToggle.reminder}
 
-      const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+      const res = await fetch(`https://my-json-server.typicode.com/yudhono/db.json/tasks/${id}`, {
         method: 'PUT',
         headers: {
           'Content-type': 'application/json'
